@@ -1,0 +1,62 @@
+<script setup>
+defineProps({
+  id: {
+    type: String,
+    default: 'id'
+  },
+  name: {
+    type: String,
+    default: 'name'
+  },
+  placeholder: {
+    type: String,
+    default: 'Placeholder'
+  },
+  modelValue: {
+    type: String,
+    default: ''
+  },
+  required: {
+    type: Boolean,
+    default: false
+  }
+})
+
+defineEmits(['update:modelValue'])
+</script>
+
+<template>
+  <label class="label" :for="name">{{ name }}</label>
+  <input
+    class="input"
+    :for="id"
+    type="text"
+    :name="name"
+    :placeholder="placeholder"
+    :value="modelValue"
+    :required="required"
+    @input="(e) => $emit('update:modelValue', e.target.value)"
+  />
+</template>
+
+<style scopped>
+.label {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.input {
+  padding: 0.5rem;
+  outline: none;
+  margin-bottom: 1rem;
+  border: none;
+  border-bottom: 1px solid #42ffe6;
+  background-color: transparent;
+}
+
+input[type="text"] {
+  background-color: transparent;
+  color: #ffffff;
+}
+
+</style>
