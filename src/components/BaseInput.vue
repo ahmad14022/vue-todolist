@@ -29,8 +29,8 @@ defineEmits(['update:modelValue'])
   <label class="label" :for="name">{{ name }}</label>
   <input
     class="input"
-    :for="id"
-    type="text"
+    :id="id"
+    :type="type"
     :name="name"
     :placeholder="placeholder"
     :value="modelValue"
